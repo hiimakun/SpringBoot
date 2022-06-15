@@ -1,0 +1,12 @@
+#name
+spring:
+  application:
+    Name: GALLERY-SERVICE
+#port
+server:
+  port: 8100
+#eureka server url
+eureka:
+  client:
+    service-url:
+      defalt-zone: http://localhost:8761/eureka

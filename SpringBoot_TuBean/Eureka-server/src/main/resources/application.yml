@@ -1,0 +1,12 @@
+#Port mặc định của Eureka server
+server:
+  port: 8761
+#Đặt tên cho server
+spring:
+  application:
+    name: EUREKA-SERVER
+#Eureka tự động đăng ký nó là 1 client -> set về false
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false

@@ -1,0 +1,41 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: API-GATEWAY
+  main:
+    allow-circular-references: true
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: USER-SERVICE
+#          uri: lb://USER-SERVICE
+#          predicates:
+#            - Path=/users/**
+#        #          filters:
+#        #            - name: CircuitBreaker
+#        #              arg:
+#        #                name: USER-SERVICE
+#        #                fallbackuri: forward:/userServiceFallBack
+#        - id: LOGIN-SERVICE
+#          uri: lb://LOGIN-SERVICE
+#          predicates:
+#            - Path=/login/**
+#          filters:
+#            - name: CircuitBreaker
+#              arg:
+#                name: DEPARTMENT-SERVICE
+#                fallbackuri: forward:/departmentServiceFallBack
+zuul:
+  routes:
+    user-service:
+      path: /user/**
+      service-id: USER-SERVICE
+    login-service:
+      path: /login/**
+      service-id: LOGIN-SERVICE
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8084/eureka/
